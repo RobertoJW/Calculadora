@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculadora.MainPage">
+
+    <Grid Padding="30,0" RowSpacing="6" ColumnSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/> <!--Fila 0: Pantalla de resultados-->
+            <RowDefinition Height="*"/> <!--Fila 1: Botones de la memoria-->
+            <RowDefinition Height="*"/> <!--Fila 2: 7, 8, 9, /, AC-->   
+            <RowDefinition Height="*"/> <!--Fila 3: 4, 5, 6, -, *-->
+            <RowDefinition Height="*"/> <!--Fila 4: 1, 2, 3, +, =-->
+            <RowDefinition Height="*"/> <!--Fila 5: 0, ",", +, =-->
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*"/> <!--Columna 0-->
+            <ColumnDefinition Width="*"/> <!--Columna 1-->
+            <ColumnDefinition Width="*"/> <!--Columna 2-->
+            <ColumnDefinition Width="*"/> <!--Columna 3-->
+            <ColumnDefinition Width="*"/> <!--Columna 4-->
+        </Grid.ColumnDefinitions>
+
+        <!--Pantalla para mostrar el resultado-->
+        <Entry 
+                x:Name="ResultEntry" Placeholder="0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5"
+                Margin="2" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="35"
+                TextColor="Black" Background="LightGray"/>
+
+        <Label
+                x:Name="Memory" Text="Mem: 0" Grid.Row="1" Grid.Column="5" 
+                Margin="2" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="35"
+                TextColor="Black" Background="LightGray"/>
+
+        <!-- botones de numeros -->
+
+        <Button
+                x:Name="SevenBtn" Text="7" Clicked="Convertion" BackgroundColor="Gray"
+                Grid.Row="2" Grid.Column="0"/>
+
+        <Button
+                x:Name="EightBtn" Text="8" Clicked="Convertion" BackgroundColor="Gray"
+                Grid.Row="2" Grid.Column="1"/>
+
+        <Button
+                x:Name="NineBtn" Text="9" Clicked="Convertion" BackgroundColor="Gray"
+                Grid.Row="2" Grid.Column="2"/>
+
+        <Button
+                x:Name="FourBtn" Text="4" Clicked="Convertion" BackgroundColor="Gray"
+                Grid.Row="3" Grid.Column="0"/>
+
+        <Button
+                x:Name="FiveBtn" Text="5" Clicked="Convertion" BackgroundColor="Gray"
+                Grid.Row="3" Grid.Column="1"/>
+
+        <Button
+                x:Name="SixBtn" Text="6" Clicked="Convertion" BackgroundColor="Gray"
+                Grid.Row="3" Grid.Column="2"/>
+
+        <Button
+                x:Name="OneBtn" Text="1" Clicked="Convertion" BackgroundColor="Gray"
+                Grid.Row="4" Grid.Column="0"/>
+
+        <Button
+                x:Name="TwoBtn" Text="2" Clicked="Convertion" BackgroundColor="Gray"
+                Grid.Row="4" Grid.Column="1"/>
+
+        <Button
+                 x:Name="ThreeBtn" Text="3" Clicked="Convertion" BackgroundColor="Gray"
+                 Grid.Row="4" Grid.Column="2"/>
+
+        <Button
+                x:Name="ZeroBtn" Text="0" Clicked="Convertion" BackgroundColor="Gray"
+                Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+        <!--Botones para operaciones-->
+        <Button
+                 x:Name="PointBtn" Text="," Clicked="Convertion" BackgroundColor="Gray"
+                 Grid.Row="5" Grid.Column="2"/>
+
+        <Button
+               x:Name="PlusBtn" Text="+" Clicked="OnOperatorClicked" BackgroundColor="BlueViolet"
+               Grid.Row="4" Grid.Column="3" Grid.RowSpan="2"/>
+
+        <Button
+               x:Name="MinusBtn" Text="-" Clicked="OnOperatorClicked" BackgroundColor="BlueViolet"
+               Grid.Row="3" Grid.Column="3"/>
+
+        <Button
+               x:Name="MultiplicationBtn" Text="x" Clicked="OnOperatorClicked" BackgroundColor="BlueViolet"
+               Grid.Row="3" Grid.Column="4"/>
+
+        <Button
+               x:Name="DivisionBtn" Text="/" Clicked="OnOperatorClicked" BackgroundColor="BlueViolet"
+               Grid.Row="2" Grid.Column="3"/>
+
+        <Button
+               x:Name="EraseBtn" Text="AC" Clicked="EraseBtn_Clicked" BackgroundColor="Red"
+               Grid.Row="2" Grid.Column="4"/>
+
+        <Button
+               x:Name="EqualsBtn" Text="=" Clicked="OnOperatorClicked" BackgroundColor="BlueViolet"
+               Grid.Row="4" Grid.Column="4" Grid.RowSpan="2"/>
+
+        <!--Botones Memory-->
+
+        <Button
+               x:Name="MRtn" Text="MR" Clicked="MemoryButtons" BackgroundColor="Gray"
+               Grid.Row="1" Grid.Column="0"/>
+
+        <Button
+               x:Name="MPlusBtn" Text="M+" Clicked="MemoryButtons" BackgroundColor="Gray"
+               Grid.Row="1" Grid.Column="1"/>
+
+        <Button
+               x:Name="MMinusBtn" Text="M-" Clicked="MemoryButtons" BackgroundColor="Gray"
+               Grid.Row="1" Grid.Column="2"/>
+
+        <Button
+               x:Name="MCBtn" Text="MC" Clicked="MemoryButtons" BackgroundColor="Gray"
+               Grid.Row="1" Grid.Column="3"/>
+    </Grid>
+</ContentPage>
